@@ -119,4 +119,139 @@ Installing collected packages: colorama
     Found existing installation: colorama 0.4.6
     Uninstalling colorama-0.4.6:
       Successfully uninstalled colorama-0.4.6
-Successfully installed colorama-0.4.4
+Successfully installed coloraenv) 
+
+
+
+
+
+
+@bocadmin ➜ .../exercise-files/03/03_07_smiling_chatbot/end (main) $ pip install -r requirements.txt
+Requirement already satisfied: colorama==0.4.4 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 1)) (0.4.4)
+Requirement already satisfied: python-dotenv==1.0.0 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 2)) (1.0.0)
+Requirement already satisfied: openai==1.3.5 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 3)) (1.3.5)
+Collecting streamlit==1.28.1
+  Downloading streamlit-1.28.1-py2.py3-none-any.whl (8.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.4/8.4 MB 54.5 MB/s eta 0:00:00
+Requirement already satisfied: anyio<4,>=3.5.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (3.7.1)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (0.27.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (1.9.0)
+Requirement already satisfied: tqdm>4 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (4.66.2)
+Requirement already satisfied: pydantic<3,>=1.9.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (2.6.3)
+Requirement already satisfied: typing-extensions<5,>=4.5 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (4.10.0)
+Collecting protobuf<5,>=3.20
+  Downloading protobuf-4.25.3-cp37-abi3-manylinux2014_x86_64.whl (294 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 294.6/294.6 kB 16.9 MB/s eta 0:00:00
+Collecting python-dateutil<3,>=2.7.3
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 13.1 MB/s eta 0:00:00
+Collecting rich<14,>=10.14.0
+  Downloading rich-13.7.1-py3-none-any.whl (240 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 240.7/240.7 kB 14.2 MB/s eta 0:00:00
+Collecting cachetools<6,>=4.0
+  Downloading cachetools-5.3.3-py3-none-any.whl (9.3 kB)
+Collecting pyarrow>=6.0
+  Downloading pyarrow-15.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (38.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 38.3/38.3 MB 30.8 MB/s eta 0:00:00
+Collecting pandas<3,>=1.3.0
+  Downloading pandas-2.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 62.7 MB/s eta 0:00:00
+Collecting tzlocal<6,>=1.1
+  Downloading tzlocal-5.2-py3-none-any.whl (17 kB)
+Collecting click<9,>=7.0
+  Downloading click-8.1.7-py3-none-any.whl (97 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 6.1 MB/s eta 0:00:00
+Collecting altair<6,>=4.0
+  Downloading altair-5.2.0-py3-none-any.whl (996 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 996.9/996.9 kB 32.0 MB/s eta 0:00:00
+Collecting packaging<24,>=16.8
+  Downloading packaging-23.2-py3-none-any.whl (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 3.3 MB/s eta 0:00:00
+Collecting toml<2,>=0.10.1
+  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting importlib-metadata<7,>=1.4
+  Downloading importlib_metadata-6.11.0-py3-none-any.whl (23 kB)
+Collecting gitpython!=3.1.19,<4,>=3.0.7
+  Downloading GitPython-3.1.42-py3-none-any.whl (195 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 195.4/195.4 kB 11.8 MB/s eta 0:00:00
+Collecting tornado<7,>=6.0.3
+  Downloading tornado-6.4-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (435 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 435.4/435.4 kB 21.1 MB/s eta 0:00:00
+Collecting tenacity<9,>=8.1.0
+  Downloading tenacity-8.2.3-py3-none-any.whl (24 kB)
+Collecting validators<1,>=0.2
+  Downloading validators-0.22.0-py3-none-any.whl (26 kB)
+Requirement already satisfied: requests<3,>=2.27 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.28.1->-r requirements.txt (line 4)) (2.31.0)
+Collecting watchdog>=2.1.5
+  Downloading watchdog-4.0.0-py3-none-manylinux2014_x86_64.whl (82 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.0/83.0 kB 5.0 MB/s eta 0:00:00
+Collecting numpy<2,>=1.19.3
+  Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 55.9 MB/s eta 0:00:00
+Collecting pillow<11,>=7.1.0
+  Downloading pillow-10.2.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 63.5 MB/s eta 0:00:00
+Collecting pydeck<1,>=0.8.0b4
+  Downloading pydeck-0.8.1b0-py2.py3-none-any.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 66.1 MB/s eta 0:00:00
+Collecting blinker<2,>=1.0.0
+  Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
+Collecting jsonschema>=3.0
+  Downloading jsonschema-4.21.1-py3-none-any.whl (85 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.5/85.5 kB 5.7 MB/s eta 0:00:00
+Collecting toolz
+  Downloading toolz-0.12.1-py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.1/56.1 kB 3.6 MB/s eta 0:00:00
+Collecting jinja2
+  Downloading Jinja2-3.1.3-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.2/133.2 kB 7.3 MB/s eta 0:00:00
+Requirement already satisfied: exceptiongroup in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (1.2.0)
+Requirement already satisfied: idna>=2.8 in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (3.6)
+Requirement already satisfied: sniffio>=1.1 in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (1.3.1)
+Collecting gitdb<5,>=4.0.1
+  Downloading gitdb-4.0.11-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.7/62.7 kB 3.5 MB/s eta 0:00:00
+Requirement already satisfied: httpcore==1.* in /home/codespace/env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (1.0.4)
+Requirement already satisfied: certifi in /home/codespace/env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (2024.2.2)
+Requirement already satisfied: h11<0.15,>=0.13 in /home/codespace/env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (0.14.0)
+Collecting zipp>=0.5
+  Downloading zipp-3.17.0-py3-none-any.whl (7.4 kB)
+Collecting pytz>=2020.1
+  Downloading pytz-2024.1-py2.py3-none-any.whl (505 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.5/505.5 kB 20.3 MB/s eta 0:00:00
+Collecting tzdata>=2022.7
+  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 kB 17.7 MB/s eta 0:00:00
+Requirement already satisfied: pydantic-core==2.16.3 in /home/codespace/env/lib/python3.10/site-packages (from pydantic<3,>=1.9.0->openai==1.3.5->-r requirements.txt (line 3)) (2.16.3)
+Requirement already satisfied: annotated-types>=0.4.0 in /home/codespace/env/lib/python3.10/site-packages (from pydantic<3,>=1.9.0->openai==1.3.5->-r requirements.txt (line 3)) (0.6.0)
+Collecting six>=1.5
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/codespace/env/lib/python3.10/site-packages (from requests<3,>=2.27->streamlit==1.28.1->-r requirements.txt (line 4)) (2.2.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/codespace/env/lib/python3.10/site-packages (from requests<3,>=2.27->streamlit==1.28.1->-r requirements.txt (line 4)) (3.3.2)
+Collecting pygments<3.0.0,>=2.13.0
+  Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 26.0 MB/s eta 0:00:00
+Collecting markdown-it-py>=2.2.0
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 5.6 MB/s eta 0:00:00
+Collecting smmap<6,>=3.0.1
+  Downloading smmap-5.0.1-py3-none-any.whl (24 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting jsonschema-specifications>=2023.03.6
+  Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Collecting rpds-py>=0.7.1
+  Downloading rpds_py-0.18.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 34.5 MB/s eta 0:00:00
+Collecting attrs>=22.2.0
+  Downloading attrs-23.2.0-py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.8/60.8 kB 4.2 MB/s eta 0:00:00
+Collecting referencing>=0.28.4
+  Downloading referencing-0.33.0-py3-none-any.whl (26 kB)
+Collecting mdurl~=0.1
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: pytz, zipp, watchdog, validators, tzlocal, tzdata, tornado, toolz, toml, tenacity, smmap, six, rpds-py, pygments, protobuf, pillow, packaging, numpy, mdurl, MarkupSafe, click, cachetools, blinker, attrs, referencing, python-dateutil, pyarrow, markdown-it-py, jinja2, importlib-metadata, gitdb, rich, pydeck, pandas, jsonschema-specifications, gitpython, jsonschema, altair, streamlit
+Successfully installed MarkupSafe-2.1.5 altair-5.2.0 attrs-23.2.0 blinker-1.7.0 cachetools-5.3.3 click-8.1.7 gitdb-4.0.11 gitpython-3.1.42 importlib-metadata-6.11.0 jinja2-3.1.3 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 markdown-it-py-3.0.0 mdurl-0.1.2 numpy-1.26.4 packaging-23.2 pandas-2.2.1 pillow-10.2.0 protobuf-4.25.3 pyarrow-15.0.0 pydeck-0.8.1b0 pygments-2.17.2 python-dateutil-2.9.0.post0 pytz-2024.1 referencing-0.33.0 rich-13.7.1 rpds-py-0.18.0 six-1.16.0 smmap-5.0.1 streamlit-1.28.1 tenacity-8.2.3 toml-0.10.2 toolz-0.12.1 tornado-6.4 tzdata-2024.1 tzlocal-5.2 validators-0.22.0 watchdog-4.0.0 zipp-3.17.0
+
+[notice] A new release of pip is available: 23.0.1 -> 24.0
+[notice] To update, run: pip install --upgrade pip
