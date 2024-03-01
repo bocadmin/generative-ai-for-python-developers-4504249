@@ -38,3 +38,17 @@ Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learn
 [lil-course-url]: https://www.linkedin.com/learning/generative-ai-for-python-developers
 [lil-thumbnail-url]: https://media.licdn.com/dms/image/D4D0DAQG7pjzOFAYjWA/learning-public-crop_675_1200/0/1707868438526?e=2147483647&v=beta&t=OYrT3o9Npcc2tlh50dVFk1Uv_dSOIWZqHNn2Ozrxrg4
 
+
+SETUP PYTHON ENVIRONMEHNT
+
+conda install python   // for this codespace installed is pthon 3.10.13   
+
+@bocadmin ➜ /workspaces/generative-ai-for-python-developers-4504249 (main) $ file /home/codespace/.python/current/bin/python
+/home/codespace/.python/current/bin/python: symbolic link to /usr/local/python/3.10.13/bin/python3
+
+python -m venv ~/env                   # place env in ${HOME}/env = /home/codespace/env directory
+
+source ~/env/bin/activate              # update ~/.bashrc with this command
+
+pip install -r requirements.txt        # cd to exercises-files/##/##_##/end/    there's a requirements.txt there!!
+
