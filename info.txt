@@ -1,0 +1,122 @@
+nv) @bocadmin ➜ .../exercise-files/02/02_03/end (main) $ pip install -r requirements.txt 
+Collecting colorama==0.4.6
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting openai==1.3.5
+  Downloading openai-1.3.5-py3-none-any.whl (220 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.8/220.8 kB 8.1 MB/s eta 0:00:00
+Collecting python-dotenv==1.0.0
+  Downloading python_dotenv-1.0.0-py3-none-any.whl (19 kB)
+Collecting tiktoken==0.5.1
+  Downloading tiktoken-0.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 39.1 MB/s eta 0:00:00
+Collecting anyio<4,>=3.5.0
+  Downloading anyio-3.7.1-py3-none-any.whl (80 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.9/80.9 kB 5.1 MB/s eta 0:00:00
+Collecting tqdm>4
+  Downloading tqdm-4.66.2-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.3/78.3 kB 4.9 MB/s eta 0:00:00
+Collecting httpx<1,>=0.23.0
+  Downloading httpx-0.27.0-py3-none-any.whl (75 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75.6/75.6 kB 4.6 MB/s eta 0:00:00
+Collecting pydantic<3,>=1.9.0
+  Downloading pydantic-2.6.3-py3-none-any.whl (395 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.2/395.2 kB 19.4 MB/s eta 0:00:00
+Collecting distro<2,>=1.7.0
+  Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting typing-extensions<5,>=4.5
+  Downloading typing_extensions-4.10.0-py3-none-any.whl (33 kB)
+Collecting regex>=2022.1.18
+  Downloading regex-2023.12.25-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (773 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 774.0/774.0 kB 28.1 MB/s eta 0:00:00
+Collecting requests>=2.26.0
+  Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 3.6 MB/s eta 0:00:00
+Collecting sniffio>=1.1
+  Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting idna>=2.8
+  Downloading idna-3.6-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 3.9 MB/s eta 0:00:00
+Collecting exceptiongroup
+  Downloading exceptiongroup-1.2.0-py3-none-any.whl (16 kB)
+Collecting certifi
+  Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 kB 10.6 MB/s eta 0:00:00
+Collecting httpcore==1.*
+  Downloading httpcore-1.0.4-py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.8/77.8 kB 4.9 MB/s eta 0:00:00
+Collecting h11<0.15,>=0.13
+  Downloading h11-0.14.0-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.3/58.3 kB 3.6 MB/s eta 0:00:00
+Collecting pydantic-core==2.16.3
+  Downloading pydantic_core-2.16.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 42.7 MB/s eta 0:00:00
+Collecting annotated-types>=0.4.0
+  Downloading annotated_types-0.6.0-py3-none-any.whl (12 kB)
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 kB 8.0 MB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (142 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 142.1/142.1 kB 8.5 MB/s eta 0:00:00
+Installing collected packages: urllib3, typing-extensions, tqdm, sniffio, regex, python-dotenv, idna, h11, exceptiongroup, distro, colorama, charset-normalizer, certifi, annotated-types, requests, pydantic-core, httpcore, anyio, tiktoken, pydantic, httpx, openai
+Successfully installed annotated-types-0.6.0 anyio-3.7.1 certifi-2024.2.2 charset-normalizer-3.3.2 colorama-0.4.6 distro-1.9.0 exceptiongroup-1.2.0 h11-0.14.0 httpcore-1.0.4 httpx-0.27.0 idna-3.6 openai-1.3.5 pydantic-2.6.3 pydantic-core-2.16.3 python-dotenv-1.0.0 regex-2023.12.25 requests-2.31.0 sniffio-1.3.1 tiktoken-0.5.1 tqdm-4.66.2 typing-extensions-4.10.0 urllib3-2.2.1
+
+[notice] A new release of pip is available: 23.0.1 -> 24.0
+[notice] To update, run: pip install --upgrade pip
+(env) @bocadmin ➜ .../exercise-files/02/02_03/end (main) $ python --versions
+unknown option --versions
+usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+(env) @bocadmin ➜ .../exercise-files/02/02_03/end (main) $ python --version
+Python 3.10.13
+(env) @bocadmin ➜ .../exercise-files/02/02_03/end (main) $ python main.py
+MENU
+====
+[1]- Ask a question
+[2]- Exit
+Enter your choice: 1
+
+Type your question and press ENTER. Type 'x' to go back to the MAIN menu.
+
+Q: what is the capital of Italy?
+(env) @bocadmin ➜ .../exercise-files/02/02_03/end (main) $ popd
+/workspaces/generative-ai-for-python-developers-4504249/exercise-files/02/02_03 /workspaces/generative-ai-for-python-developers-4504249/exercise-files/02/02_03/end /workspaces/generative-ai-for-python-developers-4504249
+(env) @bocadmin ➜ .../generative-ai-for-python-developers-4504249/exercise-files/02/02_03 (main) $ cd ..
+(env) @bocadmin ➜ /workspaces/generative-ai-for-python-developers-4504249/exercise-files/02 (main) $ cd ..
+(env) @bocadmin ➜ /workspaces/generative-ai-for-python-developers-4504249/exercise-files (main) $ pushd 03/03_02
+/workspaces/generative-ai-for-python-developers-4504249/exercise-files/03/03_02 /workspaces/generative-ai-for-python-developers-4504249/exercise-files /workspaces/generative-ai-for-python-developers-4504249/exercise-files/02/02_03/end /workspaces/generative-ai-for-python-developers-4504249
+(env) @bocadmin ➜ .../generative-ai-for-python-developers-4504249/exercise-files/03/03_02 (main) $ ls
+beginning  end
+(env) @bocadmin ➜ .../generative-ai-for-python-developers-4504249/exercise-files/03/03_02 (main) $ pushd end
+/workspaces/generative-ai-for-python-developers-4504249/exercise-files/03/03_02/end /workspaces/generative-ai-for-python-developers-4504249/exercise-files/03/03_02 /workspaces/generative-ai-for-python-developers-4504249/exercise-files /workspaces/generative-ai-for-python-developers-4504249/exercise-files/02/02_03/end /workspaces/generative-ai-for-python-developers-4504249
+(env) @bocadmin ➜ .../exercise-files/03/03_02/end (main) $ ls
+README.md  main.py  requirements.txt
+
+
+
+
+(env) @bocadmin ➜ .../exercise-files/03/03_02/end (main) $ pip install -r requirements.txt 
+Collecting colorama==0.4.4
+  Downloading colorama-0.4.4-py2.py3-none-any.whl (16 kB)
+Requirement already satisfied: python-dotenv==1.0.0 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 2)) (1.0.0)
+Requirement already satisfied: openai==1.3.5 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 3)) (1.3.5)
+Requirement already satisfied: typing-extensions<5,>=4.5 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (4.10.0)
+Requirement already satisfied: pydantic<3,>=1.9.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (2.6.3)
+Requirement already satisfied: tqdm>4 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (4.66.2)
+Requirement already satisfied: anyio<4,>=3.5.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (3.7.1)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (0.27.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 3)) (1.9.0)
+Requirement already satisfied: idna>=2.8 in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (3.6)
+Requirement already satisfied: exceptiongroup in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (1.2.0)
+Requirement already satisfied: sniffio>=1.1 in /home/codespace/env/lib/python3.10/site-packages (from anyio<4,>=3.5.0->openai==1.3.5->-r requirements.txt (line 3)) (1.3.1)
+Requirement already satisfied: httpcore==1.* in /home/codespace/env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (1.0.4)
+Requirement already satisfied: certifi in /home/codespace/env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (2024.2.2)
+Requirement already satisfied: h11<0.15,>=0.13 in /home/codespace/env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 3)) (0.14.0)
+Requirement already satisfied: pydantic-core==2.16.3 in /home/codespace/env/lib/python3.10/site-packages (from pydantic<3,>=1.9.0->openai==1.3.5->-r requirements.txt (line 3)) (2.16.3)
+Requirement already satisfied: annotated-types>=0.4.0 in /home/codespace/env/lib/python3.10/site-packages (from pydantic<3,>=1.9.0->openai==1.3.5->-r requirements.txt (line 3)) (0.6.0)
+Installing collected packages: colorama
+  Attempting uninstall: colorama
+    Found existing installation: colorama 0.4.6
+    Uninstalling colorama-0.4.6:
+      Successfully uninstalled colorama-0.4.6
+Successfully installed colorama-0.4.4
