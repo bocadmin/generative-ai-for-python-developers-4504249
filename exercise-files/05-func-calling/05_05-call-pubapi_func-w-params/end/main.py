@@ -6,7 +6,7 @@ from utils import get_current_weather
 
 
 load_dotenv()
-
+# https://home.openweathermap.org  weather API 
 tools = [
     {
         "type": "function",
