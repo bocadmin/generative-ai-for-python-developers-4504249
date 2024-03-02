@@ -535,3 +535,285 @@ Installing collected packages: mpmath, sympy, nvidia-nvtx-cu12, nvidia-nvjitlink
 
 
 exercise-files/04/04_08_whisper_translate/end/
+
+
+05 is calling external weather api
+====================================
+
+ 
+
+
+
+===============================================================================
+exercise-files/06-custom-bot-w-langchain-chromadb/06_02_LCEL
+exercise-files/06-custom-bot-w-langchain-chromadb/06_03_load_n_split_docs 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_04_init_cromadb_n_embeddings 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_05_run_chains_plus_RAG 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_06_retrieval_n_content_gen 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
+================================================================================
+
+
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_02_LCEL/end (main) $ pip install -r requirements.txt 
+Collecting chromadb==0.4.17
+  Downloading chromadb-0.4.17-py3-none-any.whl (496 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 496.8/496.8 kB 11.4 MB/s eta 0:00:00
+Collecting colorama==0.4.6
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting langchain==0.0.338
+  Downloading langchain-0.0.338-py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 24.9 MB/s eta 0:00:00
+Requirement already satisfied: openai==1.3.5 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 4)) (1.3.5)
+Collecting python-dateutil==2.8.2
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 12.5 MB/s eta 0:00:00
+Requirement already satisfied: python-dotenv==1.0.0 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 6)) (1.0.0)
+Requirement already satisfied: requests==2.31.0 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 7)) (2.31.0)
+Collecting streamlit==1.24.0
+  Using cached streamlit-1.24.0-py2.py3-none-any.whl (8.9 MB)
+Requirement already satisfied: streamlit-chat==0.1.1 in /home/codespace/env/lib/python3.10/site-packages (from -r requirements.txt (line 9)) (0.1.1)
+Collecting tiktoken==0.5.2
+  Downloading tiktoken-0.5.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 44.5 MB/s eta 0:00:00
+Collecting bcrypt>=4.0.1
+  Downloading bcrypt-4.1.2-cp39-abi3-manylinux_2_28_x86_64.whl (698 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 698.9/698.9 kB 20.5 MB/s eta 0:00:00
+Collecting grpcio>=1.58.0
+  Downloading grpcio-1.62.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 58.2 MB/s eta 0:00:00
+Requirement already satisfied: tqdm>=4.65.0 in /home/codespace/env/lib/python3.10/site-packages (from chromadb==0.4.17->-r requirements.txt (line 1)) (4.66.2)
+Collecting tokenizers>=0.13.2
+  Downloading tokenizers-0.15.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 59.9 MB/s eta 0:00:00
+Collecting opentelemetry-sdk>=1.2.0
+  Downloading opentelemetry_sdk-1.23.0-py3-none-any.whl (105 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 105.7/105.7 kB 6.5 MB/s eta 0:00:00
+Collecting opentelemetry-api>=1.2.0
+  Downloading opentelemetry_api-1.23.0-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.4/58.4 kB 3.7 MB/s eta 0:00:00
+Collecting opentelemetry-exporter-otlp-proto-grpc>=1.2.0
+  Downloading opentelemetry_exporter_otlp_proto_grpc-1.23.0-py3-none-any.whl (18 kB)
+Collecting typer>=0.9.0
+  Downloading typer-0.9.0-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 kB 2.5 MB/s eta 0:00:00
+Collecting onnxruntime>=1.14.1
+  Downloading onnxruntime-1.17.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 MB 68.8 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.22.5 in /home/codespace/env/lib/python3.10/site-packages (from chromadb==0.4.17->-r requirements.txt (line 1)) (1.26.4)
+Collecting importlib-resources
+  Downloading importlib_resources-6.1.2-py3-none-any.whl (34 kB)
+Collecting kubernetes>=28.1.0
+  Downloading kubernetes-29.0.0-py2.py3-none-any.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 41.5 MB/s eta 0:00:00
+Requirement already satisfied: pydantic>=1.9 in /home/codespace/env/lib/python3.10/site-packages (from chromadb==0.4.17->-r requirements.txt (line 1)) (2.6.3)
+Collecting fastapi>=0.95.2
+  Downloading fastapi-0.110.0-py3-none-any.whl (92 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.1/92.1 kB 5.8 MB/s eta 0:00:00
+Collecting overrides>=7.3.1
+  Downloading overrides-7.7.0-py3-none-any.whl (17 kB)
+Collecting pulsar-client>=3.1.0
+  Downloading pulsar_client-3.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 65.0 MB/s eta 0:00:00
+Collecting posthog>=2.4.0
+  Downloading posthog-3.4.2-py2.py3-none-any.whl (41 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 kB 2.3 MB/s eta 0:00:00
+Collecting PyYAML>=6.0.0
+  Downloading PyYAML-6.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (705 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 705.5/705.5 kB 25.4 MB/s eta 0:00:00
+Collecting uvicorn[standard]>=0.18.3
+  Downloading uvicorn-0.27.1-py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.8/60.8 kB 3.7 MB/s eta 0:00:00
+Requirement already satisfied: tenacity>=8.2.3 in /home/codespace/env/lib/python3.10/site-packages (from chromadb==0.4.17->-r requirements.txt (line 1)) (8.2.3)
+Collecting pypika>=0.48.9
+  Downloading PyPika-0.48.9.tar.gz (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.3/67.3 kB 3.7 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting chroma-hnswlib==0.7.3
+  Downloading chroma_hnswlib-0.7.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 46.4 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions>=4.5.0 in /home/codespace/env/lib/python3.10/site-packages (from chromadb==0.4.17->-r requirements.txt (line 1)) (4.10.0)
+Collecting jsonpatch<2.0,>=1.33
+  Downloading jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+Collecting dataclasses-json<0.7,>=0.5.7
+  Downloading dataclasses_json-0.6.4-py3-none-any.whl (28 kB)
+Collecting langsmith<0.1.0,>=0.0.63
+  Downloading langsmith-0.0.92-py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 3.7 MB/s eta 0:00:00
+Collecting async-timeout<5.0.0,>=4.0.0
+  Downloading async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+Collecting SQLAlchemy<3,>=1.4
+  Downloading SQLAlchemy-2.0.27-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 58.4 MB/s eta 0:00:00
+Requirement already satisfied: anyio<4.0 in /home/codespace/env/lib/python3.10/site-packages (from langchain==0.0.338->-r requirements.txt (line 3)) (3.7.1)
+Collecting aiohttp<4.0.0,>=3.8.3
+  Downloading aiohttp-3.9.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 33.9 MB/s eta 0:00:00
+Requirement already satisfied: distro<2,>=1.7.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 4)) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/codespace/env/lib/python3.10/site-packages (from openai==1.3.5->-r requirements.txt (line 4)) (0.27.0)
+Requirement already satisfied: six>=1.5 in /home/codespace/env/lib/python3.10/site-packages (from python-dateutil==2.8.2->-r requirements.txt (line 5)) (1.16.0)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/codespace/env/lib/python3.10/site-packages (from requests==2.31.0->-r requirements.txt (line 7)) (2.2.1)
+Requirement already satisfied: idna<4,>=2.5 in /home/codespace/env/lib/python3.10/site-packages (from requests==2.31.0->-r requirements.txt (line 7)) (3.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/codespace/env/lib/python3.10/site-packages (from requests==2.31.0->-r requirements.txt (line 7)) (3.3.2)
+Requirement already satisfied: certifi>=2017.4.17 in /home/codespace/env/lib/python3.10/site-packages (from requests==2.31.0->-r requirements.txt (line 7)) (2024.2.2)
+Requirement already satisfied: pandas<3,>=0.25 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (2.2.1)
+Requirement already satisfied: validators<1,>=0.2 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (0.22.0)
+Requirement already satisfied: pillow<10,>=6.2.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (9.5.0)
+Requirement already satisfied: pydeck<1,>=0.1.dev5 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (0.8.1b0)
+Requirement already satisfied: altair<6,>=4.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (5.2.0)
+Requirement already satisfied: toml<2 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (0.10.2)
+Requirement already satisfied: importlib-metadata<7,>=1.4 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (6.11.0)
+Requirement already satisfied: gitpython!=3.1.19,<4,>=3 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (3.1.42)
+Requirement already satisfied: blinker<2,>=1.0.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (1.7.0)
+Requirement already satisfied: click<9,>=7.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (8.1.7)
+Requirement already satisfied: tornado<7,>=6.0.3 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (6.4)
+Requirement already satisfied: pympler<2,>=0.9 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (1.0.1)
+Requirement already satisfied: packaging<24,>=14.1 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (23.2)
+Requirement already satisfied: watchdog in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (4.0.0)
+Requirement already satisfied: tzlocal<5,>=1.1 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (4.3.1)
+Requirement already satisfied: cachetools<6,>=4.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (5.3.3)
+Requirement already satisfied: rich<14,>=10.11.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (13.7.1)
+Requirement already satisfied: pyarrow>=4.0 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (15.0.0)
+Requirement already satisfied: protobuf<5,>=3.20 in /home/codespace/env/lib/python3.10/site-packages (from streamlit==1.24.0->-r requirements.txt (line 8)) (4.25.3)
+Requirement already satisfied: regex>=2022.1.18 in /home/codespace/env/lib/python3.10/site-packages (from tiktoken==0.5.2->-r requirements.txt (line 10)) (2023.12.25)
+Requirement already satisfied: attrs>=17.3.0 in /home/codespace/env/lib/python3.10/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain==0.0.338->-r requirements.txt (line 3)) (23.2.0)
+Collecting yarl<2.0,>=1.0
+  Downloading yarl-1.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (301 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.6/301.6 kB 16.2 MB/s eta 0:00:00
+Collecting aiosignal>=1.1.2
+  Downloading aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+Collecting frozenlist>=1.1.1
+  Downloading frozenlist-1.4.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (239 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 239.5/239.5 kB 14.2 MB/s eta 0:00:00
+Collecting multidict<7.0,>=4.5
+  Downloading multidict-6.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (124 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.3/124.3 kB 8.2 MB/s eta 0:00:00
+Requirement already satisfied: jinja2 in /home/codespace/env/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (3.1.3)
+Requirement already satisfied: toolz in /home/codespace/env/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (0.12.1)
+Requirement already satisfied: jsonschema>=3.0 in /home/codespace/env/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (4.21.1)
+Requirement already satisfied: exceptiongroup in /home/codespace/env/lib/python3.10/site-packages (from anyio<4.0->langchain==0.0.338->-r requirements.txt (line 3)) (1.2.0)
+Requirement already satisfied: sniffio>=1.1 in /home/codespace/env/lib/python3.10/site-packages (from anyio<4.0->langchain==0.0.338->-r requirements.txt (line 3)) (1.3.1)
+Collecting marshmallow<4.0.0,>=3.18.0
+  Downloading marshmallow-3.21.0-py3-none-any.whl (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.4/49.4 kB 2.7 MB/s eta 0:00:00
+Collecting typing-inspect<1,>=0.4.0
+  Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+Collecting starlette<0.37.0,>=0.36.3
+  Downloading starlette-0.36.3-py3-none-any.whl (71 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.5/71.5 kB 4.5 MB/s eta 0:00:00
+Requirement already satisfied: gitdb<5,>=4.0.1 in /home/codespace/env/lib/python3.10/site-packages (from gitpython!=3.1.19,<4,>=3->streamlit==1.24.0->-r requirements.txt (line 8)) (4.0.11)
+Requirement already satisfied: httpcore==1.* in /home/codespace/env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 4)) (1.0.4)
+Requirement already satisfied: h11<0.15,>=0.13 in /home/codespace/env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai==1.3.5->-r requirements.txt (line 4)) (0.14.0)
+Requirement already satisfied: zipp>=0.5 in /home/codespace/env/lib/python3.10/site-packages (from importlib-metadata<7,>=1.4->streamlit==1.24.0->-r requirements.txt (line 8)) (3.17.0)
+Collecting jsonpointer>=1.9
+  Downloading jsonpointer-2.4-py2.py3-none-any.whl (7.8 kB)
+Collecting requests-oauthlib
+  Downloading requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+Collecting oauthlib>=3.2.2
+  Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 9.3 MB/s eta 0:00:00
+Collecting google-auth>=1.0.1
+  Downloading google_auth-2.28.1-py2.py3-none-any.whl (186 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 186.9/186.9 kB 10.2 MB/s eta 0:00:00
+Collecting websocket-client!=0.40.0,!=0.41.*,!=0.42.*,>=0.32.0
+  Downloading websocket_client-1.7.0-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.5/58.5 kB 3.2 MB/s eta 0:00:00
+Requirement already satisfied: sympy in /home/codespace/env/lib/python3.10/site-packages (from onnxruntime>=1.14.1->chromadb==0.4.17->-r requirements.txt (line 1)) (1.12)
+Collecting coloredlogs
+  Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 kB 2.7 MB/s eta 0:00:00
+Collecting flatbuffers
+  Downloading flatbuffers-23.5.26-py2.py3-none-any.whl (26 kB)
+Collecting deprecated>=1.2.6
+  Downloading Deprecated-1.2.14-py2.py3-none-any.whl (9.6 kB)
+Collecting opentelemetry-exporter-otlp-proto-common==1.23.0
+  Downloading opentelemetry_exporter_otlp_proto_common-1.23.0-py3-none-any.whl (17 kB)
+Collecting googleapis-common-protos~=1.52
+  Downloading googleapis_common_protos-1.62.0-py2.py3-none-any.whl (228 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 228.7/228.7 kB 10.9 MB/s eta 0:00:00
+Collecting opentelemetry-proto==1.23.0
+  Downloading opentelemetry_proto-1.23.0-py3-none-any.whl (50 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 2.9 MB/s eta 0:00:00
+Collecting opentelemetry-semantic-conventions==0.44b0
+  Downloading opentelemetry_semantic_conventions-0.44b0-py3-none-any.whl (36 kB)
+Requirement already satisfied: tzdata>=2022.7 in /home/codespace/env/lib/python3.10/site-packages (from pandas<3,>=0.25->streamlit==1.24.0->-r requirements.txt (line 8)) (2024.1)
+Requirement already satisfied: pytz>=2020.1 in /home/codespace/env/lib/python3.10/site-packages (from pandas<3,>=0.25->streamlit==1.24.0->-r requirements.txt (line 8)) (2024.1)
+Collecting monotonic>=1.5
+  Downloading monotonic-1.6-py2.py3-none-any.whl (8.2 kB)
+Collecting backoff>=1.10.0
+  Downloading backoff-2.2.1-py3-none-any.whl (15 kB)
+Requirement already satisfied: annotated-types>=0.4.0 in /home/codespace/env/lib/python3.10/site-packages (from pydantic>=1.9->chromadb==0.4.17->-r requirements.txt (line 1)) (0.6.0)
+Requirement already satisfied: pydantic-core==2.16.3 in /home/codespace/env/lib/python3.10/site-packages (from pydantic>=1.9->chromadb==0.4.17->-r requirements.txt (line 1)) (2.16.3)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/codespace/env/lib/python3.10/site-packages (from rich<14,>=10.11.0->streamlit==1.24.0->-r requirements.txt (line 8)) (2.17.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/codespace/env/lib/python3.10/site-packages (from rich<14,>=10.11.0->streamlit==1.24.0->-r requirements.txt (line 8)) (3.0.0)
+Collecting greenlet!=0.4.17
+  Downloading greenlet-3.0.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (616 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 616.0/616.0 kB 25.6 MB/s eta 0:00:00
+Collecting huggingface_hub<1.0,>=0.16.4
+  Downloading huggingface_hub-0.21.3-py3-none-any.whl (346 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.2/346.2 kB 18.5 MB/s eta 0:00:00
+Requirement already satisfied: pytz-deprecation-shim in /home/codespace/env/lib/python3.10/site-packages (from tzlocal<5,>=1.1->streamlit==1.24.0->-r requirements.txt (line 8)) (0.1.0.post0)
+Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0
+  Downloading uvloop-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 52.7 MB/s eta 0:00:00
+Collecting watchfiles>=0.13
+  Downloading watchfiles-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 37.7 MB/s eta 0:00:00
+Collecting websockets>=10.4
+  Downloading websockets-12.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.2/130.2 kB 8.3 MB/s eta 0:00:00
+Collecting httptools>=0.5.0
+  Downloading httptools-0.6.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (341 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 341.4/341.4 kB 18.3 MB/s eta 0:00:00
+Collecting wrapt<2,>=1.10
+  Downloading wrapt-1.16.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (80 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.3/80.3 kB 5.1 MB/s eta 0:00:00
+Requirement already satisfied: smmap<6,>=3.0.1 in /home/codespace/env/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3->streamlit==1.24.0->-r requirements.txt (line 8)) (5.0.1)
+Collecting pyasn1-modules>=0.2.1
+  Downloading pyasn1_modules-0.3.0-py2.py3-none-any.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 11.4 MB/s eta 0:00:00
+Collecting rsa<5,>=3.1.4
+  Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Requirement already satisfied: fsspec>=2023.5.0 in /home/codespace/env/lib/python3.10/site-packages (from huggingface_hub<1.0,>=0.16.4->tokenizers>=0.13.2->chromadb==0.4.17->-r requirements.txt (line 1)) (2024.2.0)
+Requirement already satisfied: filelock in /home/codespace/env/lib/python3.10/site-packages (from huggingface_hub<1.0,>=0.16.4->tokenizers>=0.13.2->chromadb==0.4.17->-r requirements.txt (line 1)) (3.13.1)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/codespace/env/lib/python3.10/site-packages (from jinja2->altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (2.1.5)
+Requirement already satisfied: referencing>=0.28.4 in /home/codespace/env/lib/python3.10/site-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (0.33.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/codespace/env/lib/python3.10/site-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (0.18.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/codespace/env/lib/python3.10/site-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit==1.24.0->-r requirements.txt (line 8)) (2023.12.1)
+Requirement already satisfied: mdurl~=0.1 in /home/codespace/env/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich<14,>=10.11.0->streamlit==1.24.0->-r requirements.txt (line 8)) (0.1.2)
+Collecting mypy-extensions>=0.3.0
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Collecting humanfriendly>=9.1
+  Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.8/86.8 kB 5.8 MB/s eta 0:00:00
+Requirement already satisfied: mpmath>=0.19 in /home/codespace/env/lib/python3.10/site-packages (from sympy->onnxruntime>=1.14.1->chromadb==0.4.17->-r requirements.txt (line 1)) (1.3.0)
+Collecting pyasn1<0.6.0,>=0.4.6
+  Downloading pyasn1-0.5.1-py2.py3-none-any.whl (84 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.9/84.9 kB 5.5 MB/s eta 0:00:00
+Building wheels for collected packages: pypika
+  Building wheel for pypika (pyproject.toml) ... done
+  Created wheel for pypika: filename=PyPika-0.48.9-py2.py3-none-any.whl size=53723 sha256=988d06c4bfdefd6cad77c03ca432ce1c7ff56943e51110735d9675e10c028392
+  Stored in directory: /home/codespace/.cache/pip/wheels/e1/26/51/d0bffb3d2fd82256676d7ad3003faea3bd6dddc9577af665f4
+Successfully built pypika
+Installing collected packages: pypika, monotonic, flatbuffers, wrapt, websockets, websocket-client, uvloop, uvicorn, typer, PyYAML, python-dateutil, pyasn1, pulsar-client, overrides, opentelemetry-semantic-conventions, opentelemetry-proto, oauthlib, mypy-extensions, multidict, marshmallow, jsonpointer, importlib-resources, humanfriendly, httptools, grpcio, greenlet, googleapis-common-protos, frozenlist, colorama, chroma-hnswlib, bcrypt, backoff, async-timeout, yarl, watchfiles, typing-inspect, tiktoken, starlette, SQLAlchemy, rsa, requests-oauthlib, pyasn1-modules, posthog, opentelemetry-exporter-otlp-proto-common, jsonpatch, huggingface_hub, deprecated, coloredlogs, aiosignal, tokenizers, opentelemetry-api, onnxruntime, langsmith, google-auth, fastapi, dataclasses-json, aiohttp, opentelemetry-sdk, langchain, kubernetes, streamlit, opentelemetry-exporter-otlp-proto-grpc, chromadb
+  Attempting uninstall: python-dateutil
+    Found existing installation: python-dateutil 2.9.0.post0
+    Uninstalling python-dateutil-2.9.0.post0:
+      Successfully uninstalled python-dateutil-2.9.0.post0
+  Attempting uninstall: colorama
+    Found existing installation: colorama 0.4.4
+    Uninstalling colorama-0.4.4:
+      Successfully uninstalled colorama-0.4.4
+  Attempting uninstall: tiktoken
+    Found existing installation: tiktoken 0.5.1
+    Uninstalling tiktoken-0.5.1:
+      Successfully uninstalled tiktoken-0.5.1
+  Attempting uninstall: streamlit
+    Found existing installation: streamlit 1.28.2
+    Uninstalling streamlit-1.28.2:
+      Successfully uninstalled streamlit-1.28.2
+Successfully installed PyYAML-6.0.1 SQLAlchemy-2.0.27 aiohttp-3.9.3 aiosignal-1.3.1 async-timeout-4.0.3 backoff-2.2.1 bcrypt-4.1.2 chroma-hnswlib-0.7.3 chromadb-0.4.17 colorama-0.4.6 coloredlogs-15.0.1 dataclasses-json-0.6.4 deprecated-1.2.14 fastapi-0.110.0 flatbuffers-23.5.26 frozenlist-1.4.1 google-auth-2.28.1 googleapis-common-protos-1.62.0 greenlet-3.0.3 grpcio-1.62.0 httptools-0.6.1 huggingface_hub-0.21.3 humanfriendly-10.0 importlib-resources-6.1.2 jsonpatch-1.33 jsonpointer-2.4 kubernetes-29.0.0 langchain-0.0.338 langsmith-0.0.92 marshmallow-3.21.0 monotonic-1.6 multidict-6.0.5 mypy-extensions-1.0.0 oauthlib-3.2.2 onnxruntime-1.17.1 opentelemetry-api-1.23.0 opentelemetry-exporter-otlp-proto-common-1.23.0 opentelemetry-exporter-otlp-proto-grpc-1.23.0 opentelemetry-proto-1.23.0 opentelemetry-sdk-1.23.0 opentelemetry-semantic-conventions-0.44b0 overrides-7.7.0 posthog-3.4.2 pulsar-client-3.4.0 pyasn1-0.5.1 pyasn1-modules-0.3.0 pypika-0.48.9 python-dateutil-2.8.2 requests-oauthlib-1.3.1 rsa-4.9 starlette-0.36.3 streamlit-1.24.0 tiktoken-0.5.2 tokenizers-0.15.2 typer-0.9.0 typing-inspect-0.9.0 uvicorn-0.27.1 uvloop-0.19.0 watchfiles-0.21.0 websocket-client-1.7.0 websockets-12.0 wrapt-1.16.0 yarl-1.9.4
+
+[notice] A new release of pip is available: 23.0.1 -> 24.0
+[notice] To update, run: pip install --upgrade pip
