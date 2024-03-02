@@ -101,16 +101,22 @@ def main():
             print("Bot: " + message_response.content)
             continue
 
-        # Step 3: call the function
+        # Step 3: call the function                                                         <<<<< just call weahter API as an external func from chatbot
         call_function(message_response.tool_calls)
 
-        # Step 4: send the info on the function call and function response to GPT
+        # Step 4: send the info on the function call and function response to GPT           <<<<< based on weather API response, ask again Bot: "..." to spit additional info
         # extend conversation with assistant's reply
         second_response = client.chat.completions.create(
             model="gpt-3.5-turbo-1106",
             messages=messages,
         )  # get a new response from the model where it can see the function response
         print("Bot: " + second_response.choices[0].message.content)
+
+        # OUTPUT
+        # { "location: "Paris", "temparature" : "8", "unit" : "celsius", "forecast" : "overcast and clouds"}          # 3
+        # { - ||  -                             "46", "unit" : "fahrenheit", forecast" : "overcast and clouds"}
+        # Bot: Currently, the weather in Pairs is 8 deg celsius (46 deg fahrenheit) with overcast and clouds.         # 4
+        # You: ... (loop)
 
 
 if __name__ == "__main__":
