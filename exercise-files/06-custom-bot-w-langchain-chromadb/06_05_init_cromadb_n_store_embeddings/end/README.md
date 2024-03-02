@@ -51,6 +51,24 @@ use pip3 on a Mac or Linux and pip on Windows
 ```
 pip install -r requirements.txt
 pip install --upgrade langchain
+
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_05_init_cromadb_n_store_embeddings/end (main) $ 
+pip install pysqlite3-binary
+OUT:
+Collecting pysqlite3-binary
+  Downloading pysqlite3_binary-0.5.2.post3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/5.1 MB 49.8 MB/s eta 0:00:00
+Installing collected packages: pysqlite3-binary
+Successfully installed pysqlite3-binary-0.5.2.post3
+
+[notice] A new release of pip is available: 23.0.1 -> 24.0
+[notice] To update, run: pip install --upgrade pip
+
+in app code:
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 ```
 
 ## [Get an API key](https://platform.openai.com/account/api-keys)
@@ -62,7 +80,7 @@ pip install --upgrade langchain
 .env file:
 
 ```
-OPENAI_API_KEY=sk-brHeh...A39v5iXsM2
+export OPENAI_API_KEY=sk-brHeh...A39v5iXsM2
 ```
 
 ## ▶️ Start the app:

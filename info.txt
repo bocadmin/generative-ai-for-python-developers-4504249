@@ -1036,3 +1036,41 @@ exercise-files/06-custom-bot-w-langchain-chromadb/06_05_init_cromadb_n_store_emb
 exercise-files/06-custom-bot-w-langchain-chromadb/06_06_RAG_run_chains_retrieval_n_content_gen
 exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
 ==============================================================================================
+
+
+# split it into chunks
+    text_splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0)
+    documents = text_splitter.split_documents(documents)
+
+    # load documents to the vector store
+
+init chromadb, load embeddings:
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_05_init_cromadb_n_store_embeddings/end (main) $ export OPENAI_API_KEY=sk-brHeh...A39v5iXsM2sk-6jUjKMw81JKeib3PWpVcT3BlbkFJmcg8lZngds72i7xRKXVP
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_05_init_cromadb_n_store_embeddings/end (main) $ python main.py
+Created a chunk of size 134, which is longer than the specified 100
+Created a chunk of size 124, which is longer than the specified 100
+Created a chunk of size 123, which is longer than the specified 100
+Created a chunk of size 155, which is longer than the specified 100
+Created a chunk of size 171, which is longer than the specified 100
+Created a chunk of size 133, which is longer than the specified 100
+Created a chunk of size 119, which is longer than the specified 100
+
+
+# load documents to the vector store
+    # load it into Chroma
+
+    db = Chroma.from_documents(documents, embeddings)
+
+    # query it
+    docs = db.similarity_search(user_query)
+
+    # print results
+    print(docs[0].page_content)
+
+
+pay one day for tokens:
+packageAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-brHeh************************************************************KXVP. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+GPT3 returns:
+for input: Is international shipping available?
+GPPT3 output: Yes, international shipping is available. Shipping cost may vary depending on the destination.
