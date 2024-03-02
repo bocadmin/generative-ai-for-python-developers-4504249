@@ -1074,3 +1074,61 @@ packageAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect A
 GPT3 returns:
 for input: Is international shipping available?
 GPPT3 output: Yes, international shipping is available. Shipping cost may vary depending on the destination.
+
+
+# storing embeddings into ChromaDB
+
+06_06_RAG_run_chains_retreival_n_content_gen
+
+Please visit                     https://docs.trychroma.com/troubleshooting#sqlite to learn how                     to upgrade.
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_06_RAG_run_chains_retrieval_n_content_gen/end (main) $ apt-cache policy sqlite3
+sqlite3:
+  Installed: 3.31.1-4ubuntu0.6
+  Candidate: 3.31.1-4ubuntu0.6                
+  Version table:
+ *** 3.31.1-4ubuntu0.6 100
+        100 /var/lib/dpkg/status
+
+
+# search the database by similarity   06_06
+    docs = db.similarity_search(user_query)
+
+    # return results
+    context = docs[0].page_content        # curated local info from chromaDB is in context
+
+    # LCEL makes it easy to build complex chains from basic components, and supports out of the box functionality such as streaming, parallelism, and logging.
+    chain = chat_prompt_template | chatmodel | str_parser                     # run chains !!!!
+    message = chain.invoke({"question": user_query, "context": context})      # augmented user_query with context from chormaDB
+    print(message)
+
+
+# 06_07 better structured loading of embeddings into chromadb, similaryt search => context, user_query + context -> pass to gpt (RAG)  
+
+def load_embeddings(documents, user_query):
+    """Create a vector store from a set of documents."""
+    db = Chroma.from_documents(documents, OpenAIEmbeddings())
+    docs = db.similarity_search(user_query)
+    print(docs)
+    return db.as_retriever()
+
+
+def generate_response(retriever, query):
+    pass
+    # Create a prompt template using a template from the config module and input variables
+    # representing the context and question.
+    # create the prompt
+
+    chain = (
+        {"context": retriever, "question": RunnablePassthrough()}
+        | chat_prompt_template
+        | model
+        | StrOutputParser()
+    )
+    return chain.invoke(query)
+
+
+def query(query):
+    documents = load_documents()
+    retriever = load_embeddings(documents, query)
+    response = generate_response(retriever, query)
+    return response

@@ -50,7 +50,7 @@ use pip3 on a Mac or Linux and pip on Windows
 
 ```
 pip install -r requirements.txt
-pip install --upgrade langchain
+pip install --upgrade langchain     # <<<<<<<>>>>>>>
 ```
 
 ## [Get an API key](https://platform.openai.com/account/api-keys)

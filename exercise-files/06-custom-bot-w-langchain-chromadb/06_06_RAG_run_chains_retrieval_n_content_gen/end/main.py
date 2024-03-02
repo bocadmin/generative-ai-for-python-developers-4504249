@@ -16,6 +16,10 @@ from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import Chroma
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')     # beside this py sqlit3, ubuntu must have installed sqlite3 (>=3.50.1), and github codespace has 3.31.1 installed!!!!
+
 load_dotenv()
 
 embeddings = OpenAIEmbeddings()
