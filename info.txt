@@ -1014,3 +1014,14 @@ Created a chunk of size 133, which is longer than the specified 100
 Created a chunk of size 119, which is longer than the specified 100
 Created a chunk of size 115, which is longer than the specified 100
 [Document(page_content='\ufeffWhat types of shoes do you offer?\nWe offer a wide range of shoes including casual, sports, formal, and outdoor footwear for all ages.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I determine my shoe size?\nYou can refer to the sizing guide on our website including a printable foot measuring tool.', metadata={'source': './docs/faq.txt'}), Document(page_content='Is international shipping available?\nYes, we ship worldwide. Shipping costs may vary depending on the shipping destination.', metadata={'source': './docs/faq.txt'}), Document(page_content='What is your return policy?\nWe accept any returns within 30 days of purchase, and ask that customers return the shoes unworn and in the original packaging.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer a loyalty program?\nYes, our loyalty program rewards customers with points generated from every purchase, which can be redeemed for discounts on future orders.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I track my order?\nOnce your order ships, a tracking number will be sent to you via email.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer any environmentally friendly shoes?\nYes, we have a wide range of eco-friendly shoes all made from sustainable materials.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I change or cancel my order?\nOrders can be modified or cancelled within 24 hours of placing them on the website.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer gift cards?\nYes, we offer both digital and physical gift cards, available in a range of denominations.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I contact customer service?\nOur customer service team can be reached via email, phone, or live chat on our website.', metadata={'source': './docs/faq.txt'})]
+
+
+1 Documents are 
+d1,d2,d3,....  are split into chunks  
+
+2 Create embeddings:
+        [0.121], [313]
+        [0.101], [123]
+        [0.101], [011]
+
+3 Store embedding into ChromaDB vectorDB
