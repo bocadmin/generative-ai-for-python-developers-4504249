@@ -17,7 +17,7 @@ from langchain.vectorstores import Chroma
 load_dotenv()
 
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")            # define it as env var!!!
 LANGUAGE_MODEL = "gpt-3.5-turbo-instruct"
 
 system_prompt = "You are a helpful assistant that answers generals inquiries and assist with technical issues"

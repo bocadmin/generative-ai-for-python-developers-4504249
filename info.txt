@@ -975,4 +975,42 @@ Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/codespace/env/lib/p
 exercise-files/06-custom-bot-w-langchain-chromadb/06_06_retrieval_n_content_gen 
 exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
 
-exercise-files/06-custom-bot-w-langchain-chromadb/06_02_LCEL exercise-files/06-custom-bot-w-langchain-chromadb/06_03_LCEL2 exercise-files/06-custom-bot-w-langchain-chromadb/06_04_init_cromadb_n_embeddings_load_n_split_docs exercise-files/06-custom-bot-w-langchain-chromadb/06_05_run_chains_plus_RAG exercise-files/06-custom-bot-w-langchain-chromadb/06_06_retrieval_n_content_gen exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
+----------------------------------------------------------------------------------------------------------
+exercise-files/06-custom-bot-w-langchain-chromadb/06_02_LCEL 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_03_LCEL2 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_04_init_cromadb_n_embeddings_load_n_split_docs 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_05_run_chains_plus_RAG 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_06_retrieval_n_content_gen 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
+-----------------------------------------------------------------------------------
+
+
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_04_init_cromadb_n_embeddings_load_n_split_docs/end (main) $ 
+export OPENAI_API_KEY=sk-brHeh...A39v5iXsM2sk-6jUjKMw81JKeib3PWpVcT3BlbkFJmcg8lZngds72i7xRKXVP
+(env) @bocadmin ➜ .../exercise-files/06-custom-bot-w-langchain-chromadb/06_04_init_cromadb_n_embeddings_load_n_split_docs/end (main) $ 
+streamlit run main.py   <enter>
+OUT:
+
+ You can now view your Streamlit app in your browser.
+
+  Network URL: http://172.16.5.4:8501
+  External URL: http://4.155.29.6:8501
+
+Created a chunk of size 134, which is longer than the specified 100
+Created a chunk of size 124, which is longer than the specified 100
+Created a chunk of size 123, which is longer than the specified 100
+Created a chunk of size 155, which is longer than the specified 100
+Created a chunk of size 171, which is longer than the specified 100
+Created a chunk of size 133, which is longer than the specified 100
+Created a chunk of size 119, which is longer than the specified 100
+Created a chunk of size 115, which is longer than the specified 100
+[Document(page_content='\ufeffWhat types of shoes do you offer?\nWe offer a wide range of shoes including casual, sports, formal, and outdoor footwear for all ages.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I determine my shoe size?\nYou can refer to the sizing guide on our website including a printable foot measuring tool.', metadata={'source': './docs/faq.txt'}), Document(page_content='Is international shipping available?\nYes, we ship worldwide. Shipping costs may vary depending on the shipping destination.', metadata={'source': './docs/faq.txt'}), Document(page_content='What is your return policy?\nWe accept any returns within 30 days of purchase, and ask that customers return the shoes unworn and in the original packaging.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer a loyalty program?\nYes, our loyalty program rewards customers with points generated from every purchase, which can be redeemed for discounts on future orders.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I track my order?\nOnce your order ships, a tracking number will be sent to you via email.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer any environmentally friendly shoes?\nYes, we have a wide range of eco-friendly shoes all made from sustainable materials.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I change or cancel my order?\nOrders can be modified or cancelled within 24 hours of placing them on the website.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer gift cards?\nYes, we offer both digital and physical gift cards, available in a range of denominations.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I contact customer service?\nOur customer service team can be reached via email, phone, or live chat on our website.', metadata={'source': './docs/faq.txt'})]
+Created a chunk of size 134, which is longer than the specified 100
+Created a chunk of size 124, which is longer than the specified 100
+Created a chunk of size 123, which is longer than the specified 100
+Created a chunk of size 155, which is longer than the specified 100
+Created a chunk of size 171, which is longer than the specified 100
+Created a chunk of size 133, which is longer than the specified 100
+Created a chunk of size 119, which is longer than the specified 100
+Created a chunk of size 115, which is longer than the specified 100
+[Document(page_content='\ufeffWhat types of shoes do you offer?\nWe offer a wide range of shoes including casual, sports, formal, and outdoor footwear for all ages.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I determine my shoe size?\nYou can refer to the sizing guide on our website including a printable foot measuring tool.', metadata={'source': './docs/faq.txt'}), Document(page_content='Is international shipping available?\nYes, we ship worldwide. Shipping costs may vary depending on the shipping destination.', metadata={'source': './docs/faq.txt'}), Document(page_content='What is your return policy?\nWe accept any returns within 30 days of purchase, and ask that customers return the shoes unworn and in the original packaging.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer a loyalty program?\nYes, our loyalty program rewards customers with points generated from every purchase, which can be redeemed for discounts on future orders.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I track my order?\nOnce your order ships, a tracking number will be sent to you via email.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer any environmentally friendly shoes?\nYes, we have a wide range of eco-friendly shoes all made from sustainable materials.', metadata={'source': './docs/faq.txt'}), Document(page_content='How do I change or cancel my order?\nOrders can be modified or cancelled within 24 hours of placing them on the website.', metadata={'source': './docs/faq.txt'}), Document(page_content='Do you offer gift cards?\nYes, we offer both digital and physical gift cards, available in a range of denominations.', metadata={'source': './docs/faq.txt'}), Document(page_content='How can I contact customer service?\nOur customer service team can be reached via email, phone, or live chat on our website.', metadata={'source': './docs/faq.txt'})]
