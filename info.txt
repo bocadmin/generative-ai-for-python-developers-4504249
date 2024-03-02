@@ -1025,3 +1025,14 @@ d1,d2,d3,....  are split into chunks
         [0.101], [011]
 
 3 Store embedding into ChromaDB vectorDB
+
+
+latest, most accurate naming:
+=============================================================================================
+exercise-files/06-custom-bot-w-langchain-chromadb/06_02_LCEL 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_03_LCEL2 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_04_load_n_split_docs 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_05_init_cromadb_n_store_embeddings 
+exercise-files/06-custom-bot-w-langchain-chromadb/06_06_RAG_run_chains_retrieval_n_content_gen
+exercise-files/06-custom-bot-w-langchain-chromadb/06_07_streamlit_UI
+==============================================================================================
