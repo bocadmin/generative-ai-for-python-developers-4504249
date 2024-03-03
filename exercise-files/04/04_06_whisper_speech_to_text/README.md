@@ -41,6 +41,12 @@ use `pip3 on a mac`
 sudo apt update
 sudo apt install ffmpeg
 
+NOTE: 
+sudo add-apt-repository ppa:jonathonf/ffmpeg-4
+sudo apt update
+sudo apt install ffmpeg
+
+
 ```
 
 #### On Windows:
